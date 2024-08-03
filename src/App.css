@@ -1,5 +1,19 @@
 .App {
   text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  overflow: hidden;
+  user-select: none;
+}
+
+body {
+  background-color: hsl(226, 18%, 19%);
+  background-image: url(./pattern.svg);
+  background-size: 900px;
+  background-repeat: repeat;
+  background-position: top left; 
 }
 
 .App-logo {
@@ -14,7 +28,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +35,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background-color: #011328;
+  font-family: "Roboto", sans-serif;
 }
 
 .App-link {
@@ -35,4 +50,67 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #41826e;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 8px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: 200px;
+}
+
+.button:hover {
+  background-color: #305f51;
+}
+
+.new-banner-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #d58000;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 8px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: 200px;
+}
+
+.new-banner-button:hover {
+  background-color: #a06000;
+}
+
+.banner-image {
+  max-width: 580px;
+  width: 96%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  margin-bottom: 8px;
+}
+
+.output-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  margin-top: 8px; 
+  font-family: "Roboto", sans-serif;
 }
