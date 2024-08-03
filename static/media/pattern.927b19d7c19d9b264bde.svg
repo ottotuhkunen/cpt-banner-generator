@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Template" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6000 3000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#New_Pattern);
+        opacity: .1;
+      }
+
+      .cls-3 {
+        fill: #86b6f6;
+      }
+
+      .cls-4 {
+        fill: #5996ce;
+      }
+
+      .cls-5 {
+        fill: #2069a0;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-1" x="0" y="0" width="600" height="600"/>
+    </clipPath>
+    <pattern id="New_Pattern" data-name="New Pattern" x="0" y="0" width="600" height="600" patternTransform="translate(0 60)" patternUnits="userSpaceOnUse" viewBox="0 0 600 600">
+      <g>
+        <rect class="cls-1" x="0" y="0" width="600" height="600"/>
+        <g class="cls-6">
+          <rect class="cls-5" x="0" y="0" width="600" height="600"/>
+          <g>
+            <polygon class="cls-3" points="300 88.51 -23.31 247.17 300 -309.29 300 88.51"/>
+            <polygon class="cls-4" points="300 88.51 623.31 247.17 300 -309.29 300 88.51"/>
+          </g>
+          <g>
+            <polygon class="cls-3" points="600 398.69 276.69 557.35 600 .89 600 398.69"/>
+            <polygon class="cls-4" points="600 398.69 923.31 557.35 600 .89 600 398.69"/>
+          </g>
+          <g>
+            <polygon class="cls-3" points="0 398.69 -323.31 557.35 0 .89 0 398.69"/>
+            <polygon class="cls-4" points="0 398.69 323.31 557.35 0 .89 0 398.69"/>
+          </g>
+          <g>
+            <polygon class="cls-3" points="300 688.51 -23.31 847.17 300 290.71 300 688.51"/>
+            <polygon class="cls-4" points="300 688.51 623.31 847.17 300 290.71 300 688.51"/>
+          </g>
+        </g>
+      </g>
+    </pattern>
+  </defs>
+  <rect id="Pattern" class="cls-2" width="6000" height="3000"/>
+</svg>
