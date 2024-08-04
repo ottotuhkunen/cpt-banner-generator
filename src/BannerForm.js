@@ -9,8 +9,11 @@ import { generateBanner } from './GenerateBanner';
 import callSignsData from './data.json'; // Import JSON data (ATS-units)
 
 const types = [
-    { value: 'ATC Exam', label: 'Exam (CPT)' },
-    { value: 'ATC Validation', label: 'Validation (T1)' },
+    { value: 'S2 Exam', label: 'S2 Exam' },
+    { value: 'S3 Exam', label: 'S3 Exam' },
+    { value: 'C1 Exam', label: 'C1 Exam' },
+    { value: 'C3 Exam', label: 'C3 Exam' },
+    { value: 'ATC Validation', label: 'T1 Validation' },
 ];
 
 const BannerForm = ({ onGenerate }) => {
@@ -68,7 +71,7 @@ const BannerForm = ({ onGenerate }) => {
             <Select 
                 options={callsignOptions} 
                 onChange={setCallsign} 
-                placeholder="Call sign" 
+                placeholder="ATS Unit" 
                 classNamePrefix="react-select"
                 styles={getSelectStyles(callsign)}
             />
