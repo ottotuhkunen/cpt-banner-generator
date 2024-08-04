@@ -6,7 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
 import './BannerForm.css';
 import { generateBanner } from './GenerateBanner';
-import callSignsData from './data.json'; // Import the JSON data
+import callSignsData from './data.json'; // Import JSON data (ATS-units)
 
 const types = [
     { value: 'ATC Exam', label: 'Exam (CPT)' },
@@ -24,7 +24,7 @@ const BannerForm = ({ onGenerate }) => {
     const [submitted, setSubmitted] = useState(false);
 
     useEffect(() => {
-        // Convert the JSON data into the format required by the Select component
+        // Convert JSON data
         const formattedOptions = callSignsData.map(sign => ({
             value: sign.value,
             label: `${sign.value} - ${sign.name}`,

@@ -1,6 +1,4 @@
-import { Canvg } from 'canvg';
-
-// Utility function to fetch SVG content
+// fetch SVG from public directory
 const fetchSVGContent = async (filename) => {
     const response = await fetch(`${process.env.PUBLIC_URL}/svgs/${filename}`);
     if (!response.ok) {
@@ -9,7 +7,7 @@ const fetchSVGContent = async (filename) => {
     return response.text();
 };
 
-// Utility function to fetch image content
+// fetch image content
 const fetchImageContent = async (url) => {
     const response = await fetch(url);
     if (!response.ok) {
@@ -18,11 +16,11 @@ const fetchImageContent = async (url) => {
     return response.blob();
 };
 
-// Function to generate PNG from SVG
+// Generate SVG content
 export const generateBanner = async ({ country, callsign, icao, type, date, time, candidate }) => {
-    console.log('Parameters:', { country, callsign, icao, type, date, time, candidate });
+    // console.log('Parameters:', { country, callsign, icao, type, date, time, candidate });
 
-    // Determine the SVG filename based on the ICAO code or country
+    // Load SVG based on ICAO (main airports) or Country
     let svgFile = `${icao}.svg`;
     if (!['EFHK', 'ESSA', 'EKCH', 'ENGM', 'BIKF'].includes(icao)) {
         svgFile = `${country}.svg`;
@@ -55,7 +53,6 @@ export const generateBanner = async ({ country, callsign, icao, type, date, time
             }  
         }
 
-        // Handle external images
         const backgroundImages = svgElement.querySelectorAll('image');
         for (const img of backgroundImages) {
             const href = img.getAttribute('xlink:href');
@@ -74,7 +71,7 @@ export const generateBanner = async ({ country, callsign, icao, type, date, time
         return null;
     }
 
-    // Serialize SVG to a string and create a Blob URL
+    // Serialize SVG to a string and create a Blob
     const svgBlob = new Blob([svgContainer.innerHTML], { type: 'image/svg+xml;charset=utf-8' });
     const svgUrl = URL.createObjectURL(svgBlob);
 
@@ -104,10 +101,10 @@ export const generateBanner = async ({ country, callsign, icao, type, date, time
         canvas.width = width;
         canvas.height = height;
 
-        // Draw the image on the canvas
+        // Draw image on the canvas
         context.drawImage(image, 0, 0, width, height);
 
-        // Convert canvas to PNG data URL
+        // Convert canvas to PNG
         const pngDataUrl = canvas.toDataURL('image/png');
 
         return pngDataUrl;

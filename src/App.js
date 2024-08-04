@@ -1,18 +1,14 @@
-// src/App.js
 import React, { useState } from 'react';
 import BannerForm from './BannerForm';
-import { generateBanner } from './GenerateBanner';  // Import the generateBanner function
-import './App.css';  // Import the CSS file for styling
+import { generateBanner } from './GenerateBanner'; 
+import './App.css';
 
 const App = () => {
     const [bannerData, setBannerData] = useState(null);
 
     const handleGenerate = async (data) => {
         try {
-            // Call the generateBanner function and wait for the PNG data URL
             const pngDataUrl = await generateBanner(data);
-
-            // Update the state with the new banner data including the PNG image URL
             setBannerData({
                 ...data,
                 imageUrl: pngDataUrl
@@ -24,7 +20,6 @@ const App = () => {
 
     const handleDownload = () => {
         if (bannerData && bannerData.imageUrl) {
-            // Create a link element
             const link = document.createElement('a');
             link.href = bannerData.imageUrl;
             link.download = 'banner.png';

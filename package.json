@@ -2,7 +2,7 @@
   "name": "cpt-banner-generator",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://banner.lusep.fi/",
+  "homepage": "https://banner.lusep.fi",
   "dependencies": {
     "@syncfusion/ej2-react-calendars": "^26.2.5",
     "@testing-library/jest-dom": "^5.17.0",
