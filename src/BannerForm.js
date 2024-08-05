@@ -5,7 +5,6 @@ import TimePicker from 'react-time-picker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
 import './BannerForm.css';
-import { generateBanner } from './GenerateBanner';
 import callSignsData from './data.json'; // Import JSON data (ATS-units)
 
 const types = [
@@ -48,10 +47,13 @@ const BannerForm = ({ onGenerate }) => {
                 country: callsign.country,
                 callsign: callsign.name,
                 icao: callsign.icao, 
+                logon: callsign.value, 
                 type: type.value, 
                 date: formattedDate,
-                time: `${startTime} - ${endTime} UTC`,
-                candidate: candidate
+                startTime: startTime,
+                endTime: endTime,
+                candidate: candidate,
+                place: callsign.place
             });
         }
     };

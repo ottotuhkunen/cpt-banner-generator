@@ -8,10 +8,12 @@ const App = () => {
 
     const handleGenerate = async (data) => {
         try {
-            const pngDataUrl = await generateBanner(data);
+            const { pngDataUrl, title, desc } = await generateBanner(data);
             setBannerData({
                 ...data,
-                imageUrl: pngDataUrl
+                imageUrl: pngDataUrl,
+                title: title,
+                desc: desc
             });
         } catch (error) {
             console.error('Error generating banner:', error);
@@ -35,6 +37,8 @@ const App = () => {
               <BannerForm onGenerate={handleGenerate} />
           ) : (
               <div className='output-container'>
+                <h2>{bannerData.title}</h2>
+                <p style={{ display: bannerData.desc ? 'block' : 'none' }} dangerouslySetInnerHTML={{ __html: bannerData.desc }} />
                   <img src={bannerData.imageUrl} alt="Generated Banner" className="banner-image" />
                   <div>
                       <button className="button" onClick={handleDownload}>Download</button>
@@ -43,7 +47,7 @@ const App = () => {
               </div>
           )}
       </div>
-  );
+    );
   
 };
 

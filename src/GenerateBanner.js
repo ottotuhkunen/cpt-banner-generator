@@ -1,3 +1,5 @@
+import { format, parse } from 'date-fns';
+
 // fetch SVG from public directory
 const fetchSVGContent = async (filename) => {
     const response = await fetch(`${process.env.PUBLIC_URL}/svgs/${filename}`);
@@ -16,16 +18,65 @@ const fetchImageContent = async (url) => {
     return response.blob();
 };
 
+// Format date for description
+const getOrdinalSuffix = (day) => {
+    if (day >= 11 && day <= 13) return 'th';
+    switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+    }
+};
+
+const formatDateWithSuffix = (inputDate) => {
+    const parsedDate = parse(inputDate, 'dd MMM yyyy', new Date());
+    const day = format(parsedDate, 'd');
+    const month = format(parsedDate, 'MMMM');
+    const year = format(parsedDate, 'yyyy');
+    const suffix = getOrdinalSuffix(day);
+    return `${day}${suffix} of ${month} ${year}`;
+};
+
 // Generate SVG content
-export const generateBanner = async ({ country, callsign, icao, type, date, time, candidate }) => {
-    // console.log('Parameters:', { country, callsign, icao, type, date, time, candidate });
+export const generateBanner = async ({ country, callsign, icao, logon, type, date, startTime, endTime, candidate, place }) => {
 
     // Load SVG based on ICAO (main airports) or Country
     let svgFile = `${icao}.svg`;
     if (!['EFHK', 'ESSA', 'EKCH', 'ENGM', 'BIKF'].includes(icao)) {
         svgFile = `${country}.svg`;
     }
-    console.log('SVG file name:', svgFile);
+
+    const time = `${startTime} - ${endTime} UTC`;
+    const formattedDate = formatDateWithSuffix(date);
+
+    // make sure Candidate name starts with capital letter
+    candidate = candidate.charAt(0).toUpperCase() + candidate.slice(1);
+
+    const title = `${logon} | ${type}`;
+    let desc = '';
+    if (icao.startsWith('EF')) {
+        let chartsLink = `https://aip.intor.fi/ad/${icao.toLowerCase()}.html`;
+        let pilotBriefingLink = 'https://wiki.vatsim-scandinavia.org/books/finnish-airports-charts';
+
+        if (icao.startsWith('EFIN')) {
+            chartsLink = 'https://aip.intor.fi/fi/';
+            desc = `
+            Hi everyone!<br><br>
+            We warmly welcome you to ${place} on the ${formattedDate} at ${startTime} UTC. ${candidate} is delighted to provide air traffic services for your flight in order to achieve the new ATC rating. 
+            The checkout will cover multiple airports throughout the country.<br><br>
+            <a href="https://aip.intor.fi/fi/" target="_blank">Finland Charts</a> | <a href="${pilotBriefingLink}" target="_blank">Pilot Briefing</a><br><br>
+            If you wish to participate as a controller, please book your position in Discord #finnish-staffing.
+            `;
+        } else {
+            desc = `
+            Hi everyone!<br><br>
+            We warmly welcome you to ${place} on the ${formattedDate} at ${startTime} UTC. ${candidate} is delighted to provide air traffic services for your flight in order to achieve the new ATC rating.<br><br>
+            <a href="${chartsLink}" target="_blank">${icao} Charts</a> | <a href="${pilotBriefingLink}" target="_blank">Pilot Briefing</a><br><br>
+            If you wish to participate as a controller, please book your position in Discord #finnish-staffing.
+            `;
+        }
+    }
 
     // Fetch and modify the SVG content
     const svgContent = await fetchSVGContent(svgFile);
@@ -53,19 +104,6 @@ export const generateBanner = async ({ country, callsign, icao, type, date, time
             }  
         }
 
-        const backgroundImages = svgElement.querySelectorAll('image');
-        for (const img of backgroundImages) {
-            const href = img.getAttribute('xlink:href');
-            if (href) {
-                try {
-                    const imageBlob = await fetchImageContent(`${process.env.PUBLIC_URL}/backgrounds/${href}`);
-                    const imageUrl = URL.createObjectURL(imageBlob);
-                    img.setAttribute('xlink:href', imageUrl);
-                } catch (error) {
-                    console.error(`Failed to fetch image at ${href}:`, error);
-                }
-            }
-        }
     } else {
         console.error('No SVG element found in the fetched content');
         return null;
@@ -107,7 +145,7 @@ export const generateBanner = async ({ country, callsign, icao, type, date, time
         // Convert canvas to PNG
         const pngDataUrl = canvas.toDataURL('image/png');
 
-        return pngDataUrl;
+        return { pngDataUrl, title, desc };
     } catch (error) {
         console.error('Failed to convert SVG to PNG:', error);
         return null;

@@ -1,11 +1,40 @@
 .App {
   text-align: center;
   font-family: "Roboto", sans-serif;
+  color: #dfebeb;
+}
+
+.output-container h2, .output-container p {
+  font-family: "Roboto", sans-serif;
+  color: #dfebeb;
+  user-select: text;
+  max-width: 580px;
+  width: 96%;
+  background-color: #011328;
+  padding: 4px 0px;
+  margin-bottom: 18px;
+  margin-top: 0px;
 }
 
 html, body {
-  overflow: hidden;
   user-select: none;
+}
+
+a {
+  color: #43c6e7;
+}
+
+.desc-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.copy-icon {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #011328;
 }
 
 body {
