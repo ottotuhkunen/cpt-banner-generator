@@ -23,9 +23,12 @@
     {"value": "ENBR TWR", "name": "Flesland Tower", "title": "ENBR TWR", "svg": "ENBR_TWR"},
     {"value": "ENGM APP", "name": "Oslo Approach", "title": "ENGM APP", "svg": "ENGM_APP"},
     {"value": "ENGM TWR", "name": "Gardermoen Tower", "title": "ENGM TWR", "svg": "ENGM_TWR"},
+    {"value": "ENGM TWR+APP", "name": "Oslo Approach", "title": "ENGM TWR+APP", "svg": "ENGM_TWR_APP"},
+    {"value": "ENVA TWR", "name": "Værnes Tower", "title": "ENVA TWR", "svg": "ENVA_TWR"},
+    {"value": "ENVA APP", "name": "Værnes Approach", "title": "ENVA APP", "svg": "ENVA_APP"},
     {"value": "ENOS CTR", "name": "Polaris Control", "title": "ENOS CTR", "svg": "ENOS_CTR"},
     {"value": "ENOR SC CTR", "name": "Polaris Control", "title": "ENOR SC CTR", "svg": "ENOR_SC_CTR"},
-
+    {"value": "ENSV CTR", "name": "Polaris Control", "title": "ENSV CTR", "svg": "ENSV_CTR"},
 
     {"value": "ESGG APP", "name": "Göteborg Approach", "title": "ESGG APP", "svg": "ESGG_APP"},
     {"value": "ESGG TWR", "name": "Landvetter Tower", "title": "ESGG TWR", "svg": "ESGG_TWR"},
@@ -33,10 +36,6 @@
     {"value": "ESSB TWR", "name": "Bromma Tower", "title": "ESSB TWR", "svg": "ESSB_TWR"},
     {"value": "ESMS TWR", "name": "Sturup Tower", "title": "ESMS TWR", "svg": "ESMS_TWR"},
     {"value": "ESMS APP", "name": "Sweden Control", "title": "ESMS APP", "svg": "ESMS_APP"},
-
-
-
-
-
-    {"value": "ESOS CTR", "name": "Sweden Control", "title": "ESOS CTR", "svg": "ESOS_CTR"}
+    {"value": "ESOS CTR", "name": "Sweden Control", "title": "ESOS CTR", "svg": "ESOS_CTR"},
+    {"value": "ESAA CTR", "name": "Sweden Control", "title": "ESAA CTR", "svg": "ESAA_CTR"}
 ]
