@@ -5,14 +5,14 @@ import TimePicker from 'react-time-picker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
 import './BannerForm.css';
-import callSignsData from './data.json'; // Import JSON data (ATS-units)
+import callSignsData from './data.json';
 
 const types = [
     { value: 'S2 Exam', label: 'S2 Exam' },
     { value: 'S3 Exam', label: 'S3 Exam' },
     { value: 'C1 Exam', label: 'C1 Exam' },
     { value: 'C3 Exam', label: 'C3 Exam' },
-    { value: 'ATC Validation', label: 'T1 Validation' },
+    { value: 'Tier 1 Validation', label: 'T1 Validation' },
 ];
 
 const BannerForm = ({ onGenerate }) => {
@@ -44,16 +44,13 @@ const BannerForm = ({ onGenerate }) => {
                 year: 'numeric'
             });
             onGenerate({ 
-                country: callsign.country,
                 callsign: callsign.name,
-                icao: callsign.icao, 
-                logon: callsign.value, 
+                svgName: callsign.svg, 
                 type: type.value, 
                 date: formattedDate,
                 startTime: startTime,
                 endTime: endTime,
                 candidate: candidate,
-                place: callsign.place
             });
         }
     };

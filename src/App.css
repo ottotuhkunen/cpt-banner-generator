@@ -10,7 +10,6 @@
   user-select: text;
   max-width: 580px;
   width: 96%;
-  background-color: #011328;
   padding: 4px 0px;
   margin-bottom: 18px;
   margin-top: 0px;
@@ -39,7 +38,6 @@ a {
 
 body {
   background-color: hsl(226, 18%, 19%);
-  background-image: url(./pattern.svg);
   background-size: 900px;
   background-repeat: repeat;
   background-position: top left; 

@@ -8,12 +8,11 @@ const App = () => {
 
     const handleGenerate = async (data) => {
         try {
-            const { pngDataUrl, title, desc } = await generateBanner(data);
+            const { jpgDataUrl, title } = await generateBanner(data);
             setBannerData({
                 ...data,
-                imageUrl: pngDataUrl,
-                title: title,
-                desc: desc
+                imageUrl: jpgDataUrl,
+                title: title
             });
         } catch (error) {
             console.error('Error generating banner:', error);
@@ -24,7 +23,7 @@ const App = () => {
         if (bannerData && bannerData.imageUrl) {
             const link = document.createElement('a');
             link.href = bannerData.imageUrl;
-            link.download = 'banner.png';
+            link.download = 'banner.jpg';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -37,13 +36,12 @@ const App = () => {
               <BannerForm onGenerate={handleGenerate} />
           ) : (
               <div className='output-container'>
-                <h2>{bannerData.title}</h2>
-                <p style={{ display: bannerData.desc ? 'block' : 'none' }} dangerouslySetInnerHTML={{ __html: bannerData.desc }} />
-                  <img src={bannerData.imageUrl} alt="Generated Banner" className="banner-image" />
-                  <div>
-                      <button className="button" onClick={handleDownload}>Download</button>
-                      <button className="new-banner-button" onClick={() => setBannerData(null)}>Generate New Banner</button>
-                  </div>
+                <h2>{bannerData.title.replace(/_/g, ' ')}</h2>
+                <img src={bannerData.imageUrl} alt="Generated Banner" className="banner-image" />
+                <div>
+                    <button className="new-banner-button" onClick={() => setBannerData(null)}>Generate New Banner</button>
+                    <button className="button" onClick={handleDownload}>Download</button>
+                </div>
               </div>
           )}
       </div>
