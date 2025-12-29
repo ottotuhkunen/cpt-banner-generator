@@ -2,6 +2,8 @@
     {"value": "EKCH APP", "name": "Copenhagen Approach", "title": "EKCH APP", "svg": "EKCH_APP"},
     {"value": "EKCH TWR", "name": "Kastrup Tower", "title": "EKCH TWR", "svg": "EKCH_TWR"},
     {"value": "EKDK CTR", "name": "Copenhagen Control", "title": "EKDK CTR", "svg": "EKDK_CTR"},
+    {"value": "EKBI APP", "name": "Billund Approach", "title": "EKBI APP", "svg": "EKBI_APP"},
+    {"value": "EKBI TWR", "name": "Billund Tower", "title": "EKBI TWR", "svg": "EKBI_TWR"},
 
     {"value": "EFIN CTR", "name": "Helsinki Control", "title": "EFIN CTR", "svg": "EFIN_CTR"},
     {"value": "EFHK APP", "name": "Helsinki Radar", "title": "EFHK APP", "svg": "EFHK_APP"},
@@ -32,8 +34,10 @@
 
     {"value": "ESGG APP", "name": "Göteborg Approach", "title": "ESGG APP", "svg": "ESGG_APP"},
     {"value": "ESGG TWR", "name": "Landvetter Tower", "title": "ESGG TWR", "svg": "ESGG_TWR"},
-    {"value": "ESSB APP", "name": "Stockholm Control", "title": "ESSB APP", "svg": "ESSB_APP"},
+    {"value": "ESSB APP", "name": "Stockholm Approach", "title": "ESSB APP", "svg": "ESSB_APP"},
     {"value": "ESSB TWR", "name": "Bromma Tower", "title": "ESSB TWR", "svg": "ESSB_TWR"},
+    {"value": "ESSA APP", "name": "Stockholm Approach", "title": "ESSA APP", "svg": "ESSA_APP"},
+    {"value": "ESSA TWR", "name": "Arlanda Tower", "title": "ESSA TWR", "svg": "ESSA_TWR"},
     {"value": "ESMS TWR", "name": "Sturup Tower", "title": "ESMS TWR", "svg": "ESMS_TWR"},
     {"value": "ESMS APP", "name": "Sweden Control", "title": "ESMS APP", "svg": "ESMS_APP"},
     {"value": "ESOS CTR", "name": "Sweden Control", "title": "ESOS CTR", "svg": "ESOS_CTR"},

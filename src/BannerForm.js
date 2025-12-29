@@ -51,6 +51,7 @@ const BannerForm = ({ onGenerate }) => {
                 startTime: startTime,
                 endTime: endTime,
                 candidate: candidate,
+                timestamp: date
             });
         }
     };
@@ -63,6 +64,7 @@ const BannerForm = ({ onGenerate }) => {
     });
 
     return (
+        <div style={{width:'100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
         <div className="banner-form">
 
             <label>Call Sign</label>
@@ -125,6 +127,10 @@ const BannerForm = ({ onGenerate }) => {
             />
 
             <button onClick={handleGenerate}>Generate Banner</button>
+        </div>
+            <button className="new-banner-button" style={{marginTop: '20px'}} onClick={() => window.location.reload()}>
+                Back
+            </button>
         </div>
     );
 };
